@@ -15,7 +15,6 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
@@ -26,7 +25,6 @@ SECRET_KEY = 'sa&j8eq8_h%rcc=sd4rre-(lo+^v(s^)htmdl%phk3+)8z6it!'
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
 
 # Application definition
 
@@ -49,6 +47,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'social_django.middleware.SocialAuthExceptionMiddleware',
 ]
 
 ROOT_URLCONF = 'social_auth.urls'
@@ -56,7 +55,7 @@ ROOT_URLCONF = 'social_auth.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -64,13 +63,14 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'social_django.context_processors.backends',
+                'social_django.context_processors.login_redirect',
             ],
         },
     },
 ]
 
 WSGI_APPLICATION = 'social_auth.wsgi.application'
-
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
@@ -81,7 +81,6 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
@@ -101,7 +100,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
 
@@ -115,8 +113,70 @@ USE_L10N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'social_auth/static')
+]
+
+AUTHENTICATION_BACKENDS = (
+    'social_core.backends.github.GithubOAuth2',
+    'social_core.backends.twitter.TwitterOAuth',
+    'social_core.backends.facebook.FacebookOAuth2',
+    'social_core.backends.linkedin.LinkedinOAuth2',
+    'social_core.backends.instagram.InstagramOAuth2',
+    'social_core.backends.google.GoogleOAuth2',
+    'django.contrib.auth.backends.ModelBackend',
+)
+
+LOGIN_URL = 'login'
+LOGIN_REDIRECT_URL = 'home'
+LOGOUT_URL = 'logout'
+LOGOUT_REDIRECT_URL = 'login'
+
+# For Facebook Authentication
+SOCIAL_AUTH_FACEBOOK_KEY = "583280438825516"  # Client ID
+SOCIAL_AUTH_FACEBOOK_SECRET = "9bfad483a6bdecedf84f6cf1e2d8b7d5"  # Client SECRET
+SOCIAL_AUTH_FACEBOOK_SCOPE = ['email', 'user_link']
+SOCIAL_AUTH_FACEBOOK_PROFILE_EXTRA_PARAMS = {
+    'fields': 'id, name, email, picture.type(large), link'
+}
+SOCIAL_AUTH_FACEBOOK_EXTRA_DATA = [  # add this
+    ('name', 'name'),
+    ('email', 'email'),
+    ('picture', 'picture'),
+    ('link', 'profile_url'),
+]
+
+# For Instagram Authentication
+SOCIAL_AUTH_INSTAGRAM_KEY = "618334155606434"  # Client ID
+SOCIAL_AUTH_INSTAGRAM_SECRET = "bf866e8cdbbc6b6b0f967612b6679b86"  # Client SECRET
+SOCIAL_AUTH_INSTAGRAM_EXTRA_DATA = [('user', 'user'), ]
+
+# For Linkedin Authentication
+SOCIAL_AUTH_LINKEDIN_OAUTH2_KEY = "YOUR_CLIENT_ID"  # Client ID
+SOCIAL_AUTH_LINKEDIN_OAUTH2_SECRET = "YOUR_CLIENT_SECRET"  # Client Secret
+SOCIAL_AUTH_LINKEDIN_OAUTH2_SCOPE = ['r_basicprofile', 'r_emailaddress']
+SOCIAL_AUTH_LINKEDIN_OAUTH2_FIELD_SELECTORS = ['email-address', 'formatted-name', 'public-profile-url', 'picture-url']
+SOCIAL_AUTH_LINKEDIN_OAUTH2_EXTRA_DATA = [
+    ('id', 'id'),
+    ('formattedName', 'name'),
+    ('emailAddress', 'email_address'),
+    ('pictureUrl', 'picture_url'),
+    ('publicProfileUrl', 'profile_url'),
+]
+
+# For Linkedin Authentication
+SOCIAL_AUTH_GITHUB_KEY = 'f9ac19a1abc0092fe090'
+SOCIAL_AUTH_GITHUB_SECRET = '2db50f9624ddd1e8ea771ee13f80fa25c9e3596e'
+
+# For Twitter Authentication
+SOCIAL_AUTH_TWITTER_KEY = 'rDGo524vZUDEPGS2eFyEHTCkc'
+SOCIAL_AUTH_TWITTER_SECRET = '2zfU6rXToaizLhFrskkLloBsOMJDpmvRlYTXqf5Lreh2z9Mc3i'
+
+# For Twitter Authentication
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = "815731898165-esgs9vp8s4di2t3rsmi50t8v1lf0hbln.apps.googleusercontent.com"
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = "mY0cOQxP-Y7rrQhRHVScwdbW"

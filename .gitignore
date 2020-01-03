@@ -11,7 +11,7 @@ daily_tasks.db
 
 */migrations/*
 
-
+*/db.sqlite3
 # If you are using PyCharm #
 .idea/
 */.idea/*
@@ -121,3 +121,4 @@ GitHub.sublime-settings
 !.vscode/extensions.json 
 .history
 
+*/*/migrations
