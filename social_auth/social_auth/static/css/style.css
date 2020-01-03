@@ -34,16 +34,8 @@ img {
     color:white;
 }
 
-.instagram_background{
-    background-color: #fb3958;
-}
-
 .facebook_background{
     background-color: #3b5998;
-}
-
-.twitter_background{
-    background-color: #00acee;
 }
 
 .github_background{
@@ -54,6 +46,3 @@ img {
     background-color: #db4a39;
 }
 
-.linkedin_background{
-    background-color: #0e76a8;
-}

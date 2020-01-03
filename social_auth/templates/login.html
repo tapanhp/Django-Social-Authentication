@@ -3,27 +3,14 @@
 {% block content %}
     <div class="row">
         <div class="col-md-8 mx-auto social-container my-2 order-md-1">
-            <button class="btn mb-2 instagram_background">
-                <i class="fa fa-instagram icon_class" aria-hidden="true"></i>
-                <a href="{% url 'social:begin' 'instagram' %}">Login with Instagram</a>
-            </button>
             <button class="btn mb-2 facebook_background">
                 <i class="fa fa-facebook-f icon_class"></i>
                 <a href="{% url 'social:begin' 'facebook' %}">Login with Facebook
                 </a>
             </button>
-            <button class="btn mb-2 linkedin_background">
-                <i class="fab fa-linkedin-in icon_class"></i>
-                <a href="{% url 'social:begin' 'linkedin-oauth2' %}">Login with LinkedIn</a>
-            </button>
             <button class="btn mb-2 google_background">
                 <i class="fa fa-google icon_class"></i>
                 <a href="{% url 'social:begin' 'google-oauth2' %}">Login with Google</a>
-            </button>
-            <button class="btn mb-2 twitter_background">
-                <i class="fa fa-twitter icon_class"></i>
-                <a href="{% url 'social:begin' 'twitter' %}">Login with Twitter
-                </a>
             </button>
             <button class="btn mb-2 github_background">
                 <i class="fa fa-github icon_class"></i>

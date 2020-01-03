@@ -151,31 +151,9 @@ SOCIAL_AUTH_FACEBOOK_EXTRA_DATA = [  # add this
     ('link', 'profile_url'),
 ]
 
-# For Instagram Authentication
-SOCIAL_AUTH_INSTAGRAM_KEY = "618334155606434"  # Client ID
-SOCIAL_AUTH_INSTAGRAM_SECRET = "bf866e8cdbbc6b6b0f967612b6679b86"  # Client SECRET
-SOCIAL_AUTH_INSTAGRAM_EXTRA_DATA = [('user', 'user'), ]
-
-# For Linkedin Authentication
-SOCIAL_AUTH_LINKEDIN_OAUTH2_KEY = "YOUR_CLIENT_ID"  # Client ID
-SOCIAL_AUTH_LINKEDIN_OAUTH2_SECRET = "YOUR_CLIENT_SECRET"  # Client Secret
-SOCIAL_AUTH_LINKEDIN_OAUTH2_SCOPE = ['r_basicprofile', 'r_emailaddress']
-SOCIAL_AUTH_LINKEDIN_OAUTH2_FIELD_SELECTORS = ['email-address', 'formatted-name', 'public-profile-url', 'picture-url']
-SOCIAL_AUTH_LINKEDIN_OAUTH2_EXTRA_DATA = [
-    ('id', 'id'),
-    ('formattedName', 'name'),
-    ('emailAddress', 'email_address'),
-    ('pictureUrl', 'picture_url'),
-    ('publicProfileUrl', 'profile_url'),
-]
-
-# For Linkedin Authentication
+# For Github Authentication
 SOCIAL_AUTH_GITHUB_KEY = 'f9ac19a1abc0092fe090'
 SOCIAL_AUTH_GITHUB_SECRET = '2db50f9624ddd1e8ea771ee13f80fa25c9e3596e'
-
-# For Twitter Authentication
-SOCIAL_AUTH_TWITTER_KEY = 'rDGo524vZUDEPGS2eFyEHTCkc'
-SOCIAL_AUTH_TWITTER_SECRET = '2zfU6rXToaizLhFrskkLloBsOMJDpmvRlYTXqf5Lreh2z9Mc3i'
 
 # For Twitter Authentication
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = "815731898165-esgs9vp8s4di2t3rsmi50t8v1lf0hbln.apps.googleusercontent.com"
