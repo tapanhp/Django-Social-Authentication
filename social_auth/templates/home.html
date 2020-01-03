@@ -16,27 +16,6 @@
                     <p> Provider url: <a href="{{ ass.extra_data.profile_url }}">link</a></p>
                 </div>
             {% endif %}
-            {% if ass.provider == 'instagram' %}
-                <div class="col-md-6 text-center">
-                    <img src="{{ ass.extra_data.user.profile_picture }}" alt="" width="150" height="150"
-                         style="border-radius: 50%">
-                </div>
-                <div class="col-md-6 social-container my-2">
-                    <p>Signed in via: {{ ass.provider }} </p>
-                    <p> Name: {{ ass.extra_data.user.full_name }} </p>
-                    <p>Provider url: <a href="https://instagram.com/{{ ass.username }}">link</a></p>
-                </div>
-            {% endif %}
-            {% if ass.provider == 'linkedin-oauth2' %}
-                <div class="col-md-6 text-center">
-                    <img src="{{ ass.extra_data.picture_url }}" alt="" width="150" height="150"
-                         style="border-radius: 50%">
-                </div>
-                <div class="col-md-6 social-container my-2"><p> Signed in via: Linkedin </p>
-                    <p> Name: {{ ass.extra_data.name }} </p>
-                    <p> Provider url: <a href="{{ ass.extra_data.profile_url }}">link</a></p>
-                </div>
-            {% endif %}
         {% endfor %}
         <div class="col-sm-12 mt-2 text-center">
             <button class="btn btn-danger">
