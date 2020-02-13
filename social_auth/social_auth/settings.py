@@ -138,8 +138,8 @@ LOGOUT_URL = 'logout'
 LOGOUT_REDIRECT_URL = 'login'
 
 # For Facebook Authentication
-SOCIAL_AUTH_FACEBOOK_KEY = "583280438825516"  # Client ID
-SOCIAL_AUTH_FACEBOOK_SECRET = "9bfad483a6bdecedf84f6cf1e2d8b7d5"  # Client SECRET
+SOCIAL_AUTH_FACEBOOK_KEY = ""  # Client ID
+SOCIAL_AUTH_FACEBOOK_SECRET = ""  # Client SECRET
 SOCIAL_AUTH_FACEBOOK_SCOPE = ['email', 'user_link']
 SOCIAL_AUTH_FACEBOOK_PROFILE_EXTRA_PARAMS = {
     'fields': 'id, name, email, picture.type(large), link'
@@ -152,9 +152,9 @@ SOCIAL_AUTH_FACEBOOK_EXTRA_DATA = [  # add this
 ]
 
 # For Github Authentication
-SOCIAL_AUTH_GITHUB_KEY = 'f9ac19a1abc0092fe090'
-SOCIAL_AUTH_GITHUB_SECRET = '2db50f9624ddd1e8ea771ee13f80fa25c9e3596e'
+SOCIAL_AUTH_GITHUB_KEY = ''
+SOCIAL_AUTH_GITHUB_SECRET = ''
 
 # For Twitter Authentication
-SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = "815731898165-esgs9vp8s4di2t3rsmi50t8v1lf0hbln.apps.googleusercontent.com"
-SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = "mY0cOQxP-Y7rrQhRHVScwdbW"
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = ""
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = ""
